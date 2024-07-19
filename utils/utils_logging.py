@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 
-
+# logging helper functions
 class AverageMeter(object):
     """Computes and stores the average and current value
     """
