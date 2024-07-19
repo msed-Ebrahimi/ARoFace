@@ -1,7 +1,7 @@
 # ARoFace: Alignment Robustness to Improve Low-quality Face Recognition
 European Conference on Computer Vision (ECCV 2024).
 
-**[Saeed Ebrahimi](https://msed-ebrahimi.github.io/)★, [Sahar Rahimi](https://scholar.google.com/citations?user=EIwfFsQAAAAJ&hl=en&oi=ao)★, [Ali Dabouei](https://alldbi.github.io/), [Nasser Nasrabadi](https://scholar.google.com/citations?user=PNhUilMAAAAJ&hl=en)**
+**[Saeed Ebrahimi](https://msed-ebrahimi.github.io/)★, [Sahar Rahimi](https://saharr1372.github.io/)★, [Ali Dabouei](https://alldbi.github.io/), [Nasser Nasrabadi](https://scholar.google.com/citations?user=PNhUilMAAAAJ&hl=en)**
 
 ★ Equal contribution
 
