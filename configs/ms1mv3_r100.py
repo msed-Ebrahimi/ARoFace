@@ -15,7 +15,8 @@ config.fp16 = True
 config.momentum = 0.9
 config.weight_decay = 5e-4
 config.batch_size = 128
-config.lr = (0.1*config.batch_size*4)/(1024)
+config.ngpus = 4
+config.lr = (0.1*config.batch_size*config.ngpus)/(102
 config.verbose = 2000
 config.dali = False
 
