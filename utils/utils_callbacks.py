@@ -10,7 +10,7 @@ from utils.utils_logging import AverageMeter
 from torch.utils.tensorboard import SummaryWriter
 from torch import distributed
 
-
+# evaluations and logging callbacks
 class CallBackVerification(object):
     
     def __init__(self, val_targets, rec_prefix, summary_writer=None, image_size=(112, 112), wandb_logger=None):
