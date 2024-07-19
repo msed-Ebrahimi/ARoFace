@@ -237,10 +237,14 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
 ### Training sets
 Download and prepare datasets from [InsightFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) repository
 ### Training
-The total batchsize that we used for training was 2048 on four Nvidia RTX 6000 ADA.
-To have stable training, we chose the learning rate based on the total batch size on your machine. Please modify the 
+The total batch size we used for training was 2048 on four Nvidia RTX 6000 ADA.
+To have stable training, choose the learning rate based on the total batch size on your machine:
 ```
-config.ngpu = 4
+config.lr = (0.1*config.batch_size*config.ngpus)/(1024)
+```
+Please modify the 
+```
+config.ngpus = 4
 ```
 according to your resources in [configs](configs).
 
