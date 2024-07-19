@@ -5,84 +5,86 @@ European Conference on Computer Vision (ECCV 2024).
 
 ★ Equal contribution
 
-Aiming to enhance Face Recognition (FR) on Low-Quality (LQ) inputs, recent studies suggest incorporating synthetic LQ samples into training. Although promising, the quality factors that are considered in these works are general rather than FR-specific, e.g., atmospheric turbulence, resolution, etc.
+> Abstract: Aiming to enhance Face Recognition (FR) on Low-Quality (LQ) inputs, recent studies suggest incorporating synthetic LQ samples into training. Although promising, the quality factors that are considered in these works are general rather than FR-specific, e.g., atmospheric turbulence, resolution, etc.
   Motivated by the observation of the vulnerability of current FR models to even small Face Alignment Errors (FAE) in LQ images, we present a simple yet effective method that considers FAE as another quality factor that is tailored to FR. We seek to improve LQ FR by enhancing FR models' robustness to FAE. To this aim, we formalize the problem as a combination of differentiable spatial transformations and adversarial data augmentation in FR. We perturb the alignment of the training samples using a controllable spatial transformation and enrich the training with samples expressing FAE.
   We demonstrate the benefits of the proposed method by conducting evaluations on IJB-B, IJB-C, IJB-S (+4.3% Rank1), and TinyFace (+2.63%)
-
-* We introduce Face Alignment Error (FAE) as an image degradation factor tailored for FR which has previously been ignored in LQ FR studies.
-* We propose an optimization method that is specifically tailored to increase the FR model robustness against FAE.
-* We show that the proposed optimization can greatly increase the FR performance in real-world LQ evaluations such as IJB-S and TinyFace. Moreover, our framework achieves these improvements without sacrificing the performance on datasets with both HQ and LQ samples such as IJB-B and IJB-C.
-* We empirically show that the proposed method is a plug-and-play module, providing an orthogonal improvement to SOTA FR methods.
 
 ![Demo](assets/fig1.jpg)
 Visual comparison of aligned (a) and alignment-perturbed (b) samples from the IJB-B dataset. (c, d, e) 
 The performance difference between aligned inputs and those with slight FAE.
 Models exhibit robustness to FAE in HQ samples but suffer significant performance drops in LQ faces, with over 50% reduction in TAR@FAR=1e-5. Results from two distinct ResNet-100 trained on MS1MV3 using ArcFace/AdaFace objective.
 
+
+* We introduce Face Alignment Error (FAE) as an image degradation factor tailored for FR which has previously been ignored in LQ FR studies.
+* We propose an optimization method that is specifically tailored to increase the FR model robustness against FAE.
+* We show that the proposed optimization can greatly increase the FR performance in real-world LQ evaluations such as IJB-S and TinyFace. Moreover, our framework achieves these improvements without sacrificing the performance on datasets with both HQ and LQ samples such as IJB-B and IJB-C.
+* We empirically show that the proposed method is a plug-and-play module, providing an orthogonal improvement to SOTA FR methods.
+
+
 ## TinyFace Evaluations
 
 <table>
-  <tr>
+  <tr style="background-color: #dee2e6;">
     <th rowspan="1">Method</th>
     <th colspan="1">Training Set</th>
     <th colspan="1">Rank1</th>
     <th colspan="1">Rank5</th>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>URL</td>
     <td>MS1MV2</td>
     <td>63.89</td>
     <td>68.67</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>CurricularFace</td>
     <td>MS1MV2</td>
     <td>63.68</td>
     <td>67.65</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
-    <td>ArcFace+CFSM</td>
+  <tr style="background-color: #ffffff;">
+    <td>ArcFace+CFSM★</td>
     <td>MS1MV2</td>
     <td>64.69</td>
     <td>68.80</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td><b>ArcFace+ARoFace</b></td>
     <td>MS1MV2</td>
     <td><b>67.32</b></td>
     <td><b>72.45</b></td>
   </tr>
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td>ArcFace</td>
     <td>MS1MV3</td>
     <td>63.81</td>
     <td>68.80</td>
   </tr>
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td><b>ArcFace+ARoFace</b></td>
     <td>MS1MV3</td>
     <td><b>67.54</b></td>
     <td><b>71.05</b></td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
-    <td>AdaFace</td>
+  <tr style="background-color: #ffffff;">
+    <td>AdaFace★</td>
     <td>WebFace4M</td>
     <td>72.02</td>
     <td>74.52</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td><b>AdaFace+ARoFace</b></td>
     <td>WebFace4M</td>
     <td><b>73.98</b></td>
     <td><b>76.47</b></td>
   </tr>
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td>AdaFace</td>
     <td>WebFace12M</td>
     <td>72.29</td>
     <td>74.97</td>
   </tr>
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td><b>AdaFace+ARoFace</b></td>
     <td>WebFace4M</td>
     <td><b>74.00</b></td>
@@ -90,25 +92,32 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
   </tr>
 </table>
 
+★ Re-runs with official code due to missing trained checkpoints on the specified dataset in the official repository
+
 ## IJB-S Evaluations
 
 <table>
-  <tr>
-    <th rowspan="1">Method</th>
-    <th colspan="1">Venue</th>
-    <th colspan="1">Dataset</th>
-    <th colspan="1">Surveillance-to-Single Rank1</th>
-    <th colspan="1">Surveillance-to-Single Rank5</th>
-    <th colspan="1">Surveillance-to-Single 1</th>
-    <th colspan="1">Surveillance-to-Booking Rank1</th>
-    <th colspan="1">Surveillance-to-Booking Rank5</th>
-    <th colspan="1">Surveillance-to-Booking 1</th>
-    <th colspan="1">Surveillance-to-Surveillance Rank1</th>
-    <th colspan="1">Surveillance-to-Surveillance Rank5</th>
-    <th colspan="1">Surveillance-to-Surveillance 1</th>
+  <tr style="background-color: #dee2e6;">
+    <th rowspan="2">Method</th>
+    <th rowspan="2">Venue</th>
+    <th rowspan="2">Dataset</th>
+    <th colspan="3">Surveillance-to-Single</th>
+    <th colspan="3">Surveillance-to-Booking</th>
+    <th colspan="3">Surveillance-to-Surveillance</th>
+  </tr>
+<tr style="background-color: #dee2e6;">
+    <td>Rank1</td>
+    <td>Rank5</td>
+    <td>1</td>
+    <td>Rank1</td>
+    <td>Rank5</td>
+    <td>1</td>
+    <td>Rank1</td>
+    <td>Rank5</td>
+    <td>1</td>
   </tr>
   
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>ArcFace</td>
     <td>CVPR2019</td>
     <td>MS1MV2</td>
@@ -122,7 +131,7 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td>-</td>
     <td>-</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>PFE</td>
     <td>ICCV2019</td>
     <td>MS1MV2</td>
@@ -136,7 +145,7 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td>20.82</td>
     <td>0.84</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>URL</td>
     <td>ICCV2020</td>
     <td>MS1MV2</td>
@@ -150,9 +159,9 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td>-</td>
     <td>-</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td><b>ArcFace+ARoFace</b></td>
-    <td></td>
+    <td>ECCV2024</td>
     <td>MS1MV2</td>
     <td><b>61.65</b></td>
     <td><b>67.6</b></td>
@@ -165,7 +174,7 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td><b>2.23</b></td>
   </tr>
   
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td>ArcFace</td>
     <td>CVPR2019</td>
     <td>WebFace4M</td>
@@ -179,9 +188,9 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td>46.67</td>
     <td>5.32</td>
   </tr>
-  <tr style="background-color: #e6e6e6;">
+  <tr style="background-color: #dee2e6;">
     <td><b>ArcFace+ARoFace</b></td>
-    <td></td>
+    <td>ECCV2024</td>
     <td>WebFace4M</td>
     <td><b>70.96</b></td>
     <td><b>75.54</b></td>
@@ -194,7 +203,7 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td><b>6.81</b></td>
   </tr>
   
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td>AdaFace</td>
     <td>CVPR2022</td>
     <td>WebFace12M</td>
@@ -208,9 +217,9 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
     <td>50.03</td>
     <td>4.62</td>
   </tr>
-  <tr style="background-color: #f2f2f2;">
+  <tr style="background-color: #ffffff;">
     <td><b>AdaFace+ARoFace</b></td>
-    <td></td>
+    <td>ECCV2024</td>
     <td>WebFace12M</td>
     <td><b>72.28</b></td>
     <td><b>77.93</b></td>
@@ -224,190 +233,36 @@ Models exhibit robustness to FAE in HQ samples but suffer significant performanc
   </tr>
 </table>
 
-
-
-## Table of Contents
-- [Usage](#usage)
-- [Balanced Classification Results](#balanced-classification-results)
-- [Long-tailed Classification Results](#long-tailed-classification-results)
-- [Citation](#citation)
-- [Acknowledgments](#acknowledgments)
-
-
-
 ## Usage
-### Prototype Estimation
-One can generate equidistributed prototypes with desired dimension:
+### Training sets
+Download and prepare datasets from [InsightFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) repository
+### Training
+The total batchsize that we used for training was 2048 on four Nvidia RTX 6000 ADA.
+To have stable training, we chose the learning rate based on the total batch size on your machine. Please modify the 
 ```
-python Prototype_Estimation.py --seed 100 --num_centroids 100 --batch_size 100 --space_dim 50 --num_epoch 1000
+config.ngpu = 4
 ```
-Also, you can find the estimated prototype in [link](Estimated_prototypes/)
-### Training classifier
-The configs can be found in ./config/Blanced or LongTail/FILENAME.yaml.
+according to your resources in [configs](configs).
+
+Then, for training on one machine using four GPUs:
 ```
-python train.py --cfg {path to config}
+torchrun --nproc_per_node=4 train_v2.py configs/ms1mv2_r100
 ```
+# Pretrained Models
 
-## Balanced Classification Results
-
-<table>
-  <tr>
-    <th rowspan="2">Method</th>
-    <th colspan="4">CIFAR-10</th>
-    <th colspan="4">ImageNet-200</th>
-  </tr>
-  <tr>
-    <td>d=10</td>
-    <td>d=25</td>
-    <td>d=50</td>
-    <td>d=100</td>
-    <td>d=25</td>
-    <td>d=50</td>
-    <td>d=100</td>
-    <td>d=200</td>
-  </tr>
-  <tr>
-    <td>PSC</td>
-    <td>25.67</td>
-    <td>60.0</td>
-    <td>60.6</td>
-    <td>62.1</td>
-    <td>60.0</td>
-    <td>60.6</td>
-    <td>62.1</td>
-    <td>33.1</td>
-  </tr>
-  <tr>
-    <td>Word2Vec</td>
-    <td>29.0</td>
-    <td>44.5</td>
-    <td>54.3</td>
-    <td>57.6</td>
-    <td>44.5</td>
-    <td>54.3</td>
-    <td>57.6</td>
-    <td>30.0</td>
-  </tr>
-  <tr>
-    <td>HPN</td>
-    <td>51.1</td>
-    <td>63.0</td>
-    <td>64.7</td>
-    <td><b>65.0</b></td>
-    <td>63.0</td>
-    <td>64.7</td>
-    <td><b>65.0</b></td>
-    <td><b>44.7</b></td>
-  </tr>
-  <tr>
-    <td><b>Ours</b></td>
-    <td><b>57.21</b></td>
-    <td><b>64.63</b></td>
-    <td><b>66.22</b></td>
-    <td>62.85</td>
-    <td><b>64.63</b></td>
-    <td><b>66.22</b></td>
-    <td>62.85</td>
-    <td>37.28</td>
-  </tr>
-</table>
-
-
-#### ImageNet-1K Classification Accuracy (%) when $d=512$:
-
-| Method               | Venue        | Backbone   | Optimizer | Accuracy (%) |
-|----------------------|--------------|------------|-----------|--------------|
-| PSC                  | CVPR 2016    | ResNet-50  | SGD       | 76.51        |
-| DNC                  | ICLR 2022    | ResNet-50  | SGD       | 76.49        |
-| Goto et al.          | WACV 2024    | ResNet-50  | SGD       | 77.19        |
-| Kasarla et al.       | NeurIPS 2022 | ResNet-50  | SGD       | 74.80        |
-| **Ours**             | CVPR 2024    | ResNet-50  | SGD       | **77.47**    |
-| DNC                  | ICLR 2022    | ResNet-101 | SGD       | 77.80        |
-| Goto et al.          | WACV 2024    | ResNet-101 | SGD       | 78.27        |
-| Kasarla et al.       | NeurIPS 2022 | ResNet-152 | SGD       | 78.50       |
-| **Ours**             | CVPR 2024            | ResNet-101 | SGD       | **79.63**    |
-| PSC                  | CVPR 2016    | Swin-T     | AdamW     | 76.91        |
-| **Ours**             | CVPR 2024          | Swin-T     | AdamW     | **77.26**    |
-
-## Long-tailed Classification Results
-
-<table>
-  <tr>
-    <th rowspan="2">Method</th>
-    <th colspan="3">CIFAR-10 LT (d=64)</th>
-    <th colspan="3">SVHN LT (d=64)</th>
-    <th colspan="3">STL-10 LT (d=64)</th>
-  </tr>
-  <tr>
-    <td>0.005</td>
-    <td>0.01</td>
-    <td>0.02</td>
-    <td>0.005</td>
-    <td>0.01</td>
-    <td>0.02</td>
-    <td>0.005</td>
-    <td>0.01</td>
-    <td>0.02</td>
-  </tr>
-  <tr>
-    <td>PSC</td>
-    <td>67.3</td>
-    <td>72.8</td>
-    <td>78.6</td>
-    <td>40.5</td>
-    <td>40.9</td>
-    <td>49.3</td>
-    <td>33.1</td>
-    <td><b>37.9</b></td>
-    <td><b>38.8</b></td>
-  </tr>
-  <tr>
-    <td>ETF</td>
-    <td><b>71.9</b></td>
-    <td>76.5</td>
-    <td>81.0</td>
-    <td><b>42.8</b></td>
-    <td>45.7</td>
-    <td><b>49.8</b></td>
-    <td>33.5</td>
-    <td>37.2</td>
-    <td>37.9</td>
-  </tr>
-  <tr>
-    <td>Ours</td>
-    <td>71.5</td>
-    <td><b>76.9</b></td>
-    <td><b>81.4</b></td>
-    <td>40.9</td>
-    <td><b>47.0</b></td>
-    <td>49.7</td>
-    <td><b>35.7</b></td>
-    <td>35.6</td>
-    <td>38.0</td>
-  </tr>
-</table>
-
-#### CIFAR-100 LT Classification Accuracy (%):
-
-| Method |  d  | 0.005  | 0.01   | 0.02   |
-|--------|:---:|:------:|:------:|:------:|
-| PSC    | 128 |  38.7  |  43.0  |  48.1  |
-| ETF    | 128 | *40.9* | **45.3** |  50.4  |
-| **Ours** | 128 | **41.3** |  44.9  | *50.7* |
-
-
-
-### Citation
-```
-```
+| Method          | Arch | Dataset   | Link                                                                                          |
+|-----------------|------|-----------|-----------------------------------------------------------------------------------------------|
+| ArcFace+ARoFace | R100 | MS1MV2    | [link](https://drive.google.com/file/d/1dB407DQXYBN16pySRA0q012b2ww2CnHz/view?usp=drive_link) |
+| ArcFace+ARoFace | R00  | MS1MV3    | [link](https://drive.google.com/file/d/1z_me8OshifKuLv1znk9-peTQr3pwTMUQ/view?usp=drive_link) |
+| ArcFace+ARoFace | R100 | WebFace4M | [link](https://drive.google.com/file/d/1ro-x-pLGpiiQjW0jIdZAIilGQeqxRW8j/view?usp=drive_link) |
+| AdaFace+ARoFace | R100 | WebFace4M | [link](https://drive.google.com/file/d/1I9dtPc_753wSMVHtkwu57RttP-Obh3Ce/view?usp=drive_link) |
+| AdaFace+ARoFace | R100 | WebFace12M | [link](https://drive.google.com/file/d/1tHqcQBY5s10uxNdfGtIYmYDEKypNtOuQ/view?usp=drive_link) |
 
 ## Acknowledgments
 
 Here are some great resources we benefit from:
 
-* [MUNIT](https://github.com/NeuralCollapseApplications/ImbalancedLearning) for the Long-Tail classification.
-* [HPN](https://github.com/psmmettes/hpn) and [EBV](https://github.com/aassxun/Equiangular-Basis-Vectors) for the Balanced classification. 
-* [Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere](https://github.com/SsnL/align_uniform) for Prototype Estimation.
-
+* [ArcFace](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) and [AdaFace](https://github.com/mk-minchul/AdaFace) for the face recognition module. 
+* [advertorch](https://github.com/BorealisAI/advertorch), [RobustAdversarialNetwork](https://github.com/DengpanFu/RobustAdversarialNetwork), and [CFSM](https://github.com/liufeng2915/CFSM/tree/main) for the adversarial regularization.
 ## Contact
 If there is a question regarding any part of the code, or it needs further clarification, please create an issue or send me an email: me00018@mix.wvu.edu.
