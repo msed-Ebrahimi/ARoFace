@@ -5,7 +5,7 @@ import time
 
 import mxnet as mx
 import numpy as np
-
+# processing datasets
 
 def read_worker(args, q_in):
     path_imgidx = os.path.join(args.input, "train.idx")
