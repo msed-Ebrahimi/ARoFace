@@ -23,6 +23,9 @@ def adversarial_img_warping(backbone, img, module_partial_fc, local_labels,eta_s
             train_labels: Concatenated labels corresponding to train_img.
         """
     batch_size = img.shape[0]
+    eta_scale = np.random.normal(eta_scale, 0.001)
+    eta_theta = np.random.normal(eta_theta, 0.001)
+    eta_t  = np.random.normal(eta_t, 0.001)
 
     # Sample random values for scale, rotation angle (theta), and translation (t)
     sampled_scale = Variable(torch.FloatTensor(np.random.normal(1, 0.01, (batch_size, 1))))
