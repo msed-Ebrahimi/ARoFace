@@ -262,6 +262,19 @@ torchrun --nproc_per_node=4 train_v2.py configs/ms1mv2_r100
 | AdaFace+ARoFace | R100 | WebFace4M | [link](https://drive.google.com/file/d/1I9dtPc_753wSMVHtkwu57RttP-Obh3Ce/view?usp=drive_link) |
 | AdaFace+ARoFace | R100 | WebFace12M | [link](https://drive.google.com/file/d/1tHqcQBY5s10uxNdfGtIYmYDEKypNtOuQ/view?usp=drive_link) |
 
+### Citation
+```
+@misc{saadabadi2024arofacealignmentrobustnessimprove,
+      title={ARoFace: Alignment Robustness to Improve Low-Quality Face Recognition}, 
+      author={Mohammad Saeed Ebrahimi Saadabadi and Sahar Rahimi Malakshan and Ali Dabouei and Nasser M. Nasrabadi},
+      year={2024},
+      eprint={2407.14972},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.14972}, 
+}
+```
+
 ## Acknowledgments
 
 Here are some great resources we benefit from:
