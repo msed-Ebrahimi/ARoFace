@@ -257,7 +257,7 @@ torchrun --nproc_per_node=4 train_v2.py configs/ms1mv2_r100
 | Method          | Arch | Dataset   | Link                                                                                          |
 |-----------------|------|-----------|-----------------------------------------------------------------------------------------------|
 | ArcFace+ARoFace | R100 | MS1MV2    | [link](https://drive.google.com/file/d/1dB407DQXYBN16pySRA0q012b2ww2CnHz/view?usp=drive_link) |
-| ArcFace+ARoFace | R00  | MS1MV3    | [link](https://drive.google.com/file/d/1z_me8OshifKuLv1znk9-peTQr3pwTMUQ/view?usp=drive_link) |
+| ArcFace+ARoFace | R100  | MS1MV3    | [link](https://drive.google.com/file/d/1z_me8OshifKuLv1znk9-peTQr3pwTMUQ/view?usp=drive_link) |
 | ArcFace+ARoFace | R100 | WebFace4M | [link](https://drive.google.com/file/d/1ro-x-pLGpiiQjW0jIdZAIilGQeqxRW8j/view?usp=drive_link) |
 | AdaFace+ARoFace | R100 | WebFace4M | [link](https://drive.google.com/file/d/1I9dtPc_753wSMVHtkwu57RttP-Obh3Ce/view?usp=drive_link) |
 | AdaFace+ARoFace | R100 | WebFace12M | [link](https://drive.google.com/file/d/1tHqcQBY5s10uxNdfGtIYmYDEKypNtOuQ/view?usp=drive_link) |
