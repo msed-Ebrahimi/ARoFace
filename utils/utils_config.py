@@ -1,7 +1,7 @@
 import importlib
 import os.path as osp
 
-
+# loading configs
 def get_config(config_file):
     assert config_file.startswith('configs/'), 'config file setting must start with configs/'
     temp_config_name = osp.basename(config_file)

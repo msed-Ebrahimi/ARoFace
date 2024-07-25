@@ -8,6 +8,7 @@ from menpo.visualize.viewmatplotlib import sample_colours_from_colourmap
 from prettytable import PrettyTable
 from sklearn.metrics import roc_curve, auc
 
+# visualization helper functions
 with open(sys.argv[1], "r") as f:
     files = f.readlines()
 

@@ -7,6 +7,7 @@ import torch
 import torch.distributed as dist
 from torch.utils.data import DistributedSampler as _DistributedSampler
 
+# distributed helper functions
 
 def setup_seed(seed, cuda_deterministic=True):
     torch.manual_seed(seed)
