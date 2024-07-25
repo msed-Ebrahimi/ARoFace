@@ -103,7 +103,7 @@ def main(args):
 
     backbone.train()
     # using gradient checkpoint if there are some unused parameters will cause error
-    backbone._set_static_graph()
+    # backbone._set_static_graph()
 
     margin_loss = CombinedMarginLoss(
         64,
