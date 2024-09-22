@@ -9,6 +9,8 @@ European Conference on Computer Vision (ECCV 2024).
   Motivated by the observation of the vulnerability of current FR models to even small Face Alignment Errors (FAE) in LQ images, we present a simple yet effective method that considers FAE as another quality factor that is tailored to FR. We seek to improve LQ FR by enhancing FR models' robustness to FAE. To this aim, we formalize the problem as a combination of differentiable spatial transformations and adversarial data augmentation in FR. We perturb the alignment of the training samples using a controllable spatial transformation and enrich the training with samples expressing FAE.
   We demonstrate the benefits of the proposed method by conducting evaluations on IJB-B, IJB-C, IJB-S (+4.3% Rank1), and TinyFace (+2.63%)
 
+**[Arxive](https://arxiv.org/abs/2407.14972), [HuggingFace](https://huggingface.co/papers/2407.14972)
+
 ![Demo](assets/fig1.jpg)
 Visual comparison of aligned (a) and alignment-perturbed (b) samples from the IJB-B dataset. (c, d, e) 
 The performance difference between aligned inputs and those with slight FAE.
